@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let diceFaces = ["face-one", "face-two", "face-three", "face-four", "face-five", "face-six"]
+    @State private var currentFace = "face-one"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image(currentFace)
+                .resizable()
+                .frame(width: 200, height: 200)
+            Button {
+                currentFace = diceFaces.randomElement()!
+            } label: {
+                Text("Roll")
+            }
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
     }
 }
 
