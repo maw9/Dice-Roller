@@ -14,17 +14,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(currentFace)
-                .resizable()
-                .frame(width: 200, height: 200)
+            DiceView(face: currentFace, size: 200)
+            
             Button {
                 currentFace = diceFaces.randomElement()!
             } label: {
-                Text("Roll")
+                Label("Roll", systemImage: "dice")
             }
+            .buttonStyle(.borderedProminent)
+            .padding(.top, 24)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.black)
     }
 }
 
